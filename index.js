@@ -3,7 +3,11 @@ import bodyParser from "body-parser";
 import axios from "axios";
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+if (port == null || port == "") {
+    port = 3000;
+}
+
 const API_KEY = "fb7f4425cec8b8fb7202f8375a2c3d03";
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -71,6 +75,6 @@ app.post("/city", async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Successfully started server on port ${port}.`);
+    console.log(`Successfully has started successfully.`);
 });
 
